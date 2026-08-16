@@ -5,6 +5,7 @@
   <!-- 방패 뱃지들 -->
   <img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white" alt="Unity">
   <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#">
+  <img src="https://img.shields.io/badge/No_AI_Used-10B981?style=for-the-badge" alt="AI 미사용">
   <br><br>
 </div>
 
@@ -45,5 +46,10 @@
 
 ---
 
-## 🔥 Review & Challenge
-2인이라는 소규모 인원으로 3개월 내에 완성해야 하는 타이트한 일정이었습니다. 프로그래밍을 전담하면서 동시에 그래픽 리소스 작업 일부까지 참여하며 개발 파이프라인의 전반을 경험할 수 있었습니다. 특히, Shader Graph와 Particle System을 적극 활용하여 에셋에만 의존하지 않고 게임의 컨셉에 맞는 시각적 효과를 직접 구현한 부분이 가장 큰 성과입니다.
+## 🔥 Challenge & Solution (Material Synchronization)
+**Problem:** 적 사망 시 시체가 일정 시간(5초) 바닥에 유지된 후 서서히 사라지도록 연출하려 했습니다. 하지만 게임 내 적 오브젝트마다 셰이더 그래프(Shader Graph)로 만든 커스텀 디졸브(Dissolve) 머티리얼을 쓰는 경우와, 일반 스탠다드(Standard) 머티리얼을 쓰는 경우가 혼재되어 있어 일괄적으로 소멸 연출을 적용하기 까다로웠습니다.
+
+**Solution:** 머티리얼의 종류를 판별하여 동적으로 대응하는 `Alpha_Sync` 스크립트를 작성했습니다. `material.HasProperty("Vector1_7ECF6E17")`를 통해 커스텀 셰이더의 노드 프로퍼티가 존재하는지 검사하고, 존재하면 `SetFloat`으로 디졸브 수치를 올리고, 없다면 `_BaseColor`의 알파(Alpha) 값을 `Mathf.MoveTowards`로 서서히 낮추도록 분기 처리했습니다. 이를 통해 머티리얼 파편화 문제를 해결하고, 어떤 적이든 단일 스크립트로 깔끔하게 소멸 연출과 오브젝트 제거(Destroy)를 수행할 수 있었습니다.
+
+## 💡 Review
+2인이라는 소규모 인원으로 3개월 내에 완성해야 하는 타이트한 일정이었습니다. 프로그래밍을 전담하면서 동시에 그래픽 리소스 작업 일부까지 참여하며 개발 파이프라인 전반을 경험할 수 있었습니다. 특히, 단순히 셰이더를 만드는 것에 그치지 않고, 시스템 구조적으로 스크립트와 셰이더를 유연하게 동기화하는 로직을 직접 구현한 부분이 가장 큰 성과입니다.
