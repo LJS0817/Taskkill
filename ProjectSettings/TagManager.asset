@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Gun
+  - Enemy
+  - Enemy_Head
+  - Enemy_Body
+  - Lock
+  - Up
+  - Light
+  - Pillow
+  - Wood
+  - Broke
+  - Ammo
+  - Sit
+  - Vent
+  - Card
+  - Key
+  - Glass
+  - Ending
+  - Radio
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Noise
+  - Ground
+  - CCTV
+  - Wall
+  - Gun
+  - 
+  - Player
+  - Door
+  - Sensor
+  - Enemy
+  - Scanned_Enemy
+  - NOISE_PLAYER
+  - Lock
+  - Drone_Text
+  - Player_Text
+  - Box
+  - CCTV_Glass
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: UI
+    uniqueID: 3959544937
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Noise
+    uniqueID: 2095393365
+    locked: 0
+  - name: Ground
+    uniqueID: 2106391827
+    locked: 0
